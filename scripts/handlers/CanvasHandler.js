@@ -17,4 +17,19 @@ class CanvasHandler {
       asteroids.push(new Asteroid());
     }
   }
+
+  renderHeader() {
+    this.context.font = "21px Arial";
+    this.context.fillText("SCORE: " + score.toString(), 20, 35);
+    this.context.fillText("LIVES: " + lives.toString(), CANVAS_WIDTH - 105, 35);
+  }
+
+  renderGameOver() {
+    this.context.font = "50px Arial";
+    this.context.fillText(
+      "GAME OVER",
+      CANVAS_WIDTH / 2 - 150,
+      CANVAS_HEIGHT / 2
+    );
+  }
 }

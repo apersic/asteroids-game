@@ -72,26 +72,6 @@ const checkBulletCollision = () => {
   }
 };
 
-const renderHeader = () => {
-  canvasHandler.context.font = "21px Arial";
-  canvasHandler.context.fillText("SCORE: " + score.toString(), 20, 35);
-  canvasHandler.context.fillText(
-    "LIVES: " + lives.toString(),
-    CANVAS_WIDTH - 105,
-    35
-  );
-};
-
-const renderGameOver = () => {
-  ship.visible = false;
-  canvasHandler.context.font = "50px Arial";
-  canvasHandler.context.fillText(
-    "GAME OVER",
-    CANVAS_WIDTH / 2 - 150,
-    CANVAS_HEIGHT / 2
-  );
-};
-
 const renderGame = () => {
   checkShipCollision();
   checkBulletCollision();
@@ -121,10 +101,11 @@ const render = () => {
   keyboardHandler.handleMultipleKeyPresses(ship, bullets);
   keyboardHandler.handleMoveShip(ship);
 
-  renderHeader();
+  canvasHandler.renderHeader();
 
   if (lives <= 0) {
-    renderGameOver();
+    ship.visible = false;
+    canvasHandler.renderGameOver();
   } else {
     renderGame();
   }
