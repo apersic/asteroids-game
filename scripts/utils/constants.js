@@ -5,3 +5,6 @@ const BULLET_WIDTH = 4;
 const BULLET_HEIGHT = 4;
 
 const ASTEROID_RADIUS = 50;
+
+const PLAYER_COLOR = "#FF78FF";
+const PRIMARY_COLOR = "#fff";

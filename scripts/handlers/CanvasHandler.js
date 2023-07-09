@@ -19,9 +19,15 @@ class CanvasHandler {
   }
 
   renderHeader() {
+    const highScore = localStorage.getItem("high-score");
+
     this.context.font = "21px Arial";
     this.context.fillText("SCORE: " + score.toString(), 20, 35);
     this.context.fillText("LIVES: " + lives.toString(), CANVAS_WIDTH - 105, 35);
+
+    if (highScore) {
+      this.context.fillText("HIGH SCORE: " + highScore.toString(), 20, 65);
+    }
   }
 
   renderGameOver() {
@@ -30,6 +36,17 @@ class CanvasHandler {
       "GAME OVER",
       CANVAS_WIDTH / 2 - 150,
       CANVAS_HEIGHT / 2
+    );
+  }
+
+  renderGameOverWithNewHighScore(score) {
+    this.renderGameOver();
+
+    this.context.font = "21px Arial";
+    this.context.fillText(
+      `NEW HIGH SCORE: ${score.toString()}`,
+      CANVAS_WIDTH / 2 - 115,
+      CANVAS_HEIGHT / 2 - 95
     );
   }
 }

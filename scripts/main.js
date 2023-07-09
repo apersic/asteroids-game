@@ -1,6 +1,8 @@
 const canvasHandler = new CanvasHandler(document.getElementById("canvas"));
 const keyboardHandler = new KeyBoardHandler(canvasHandler);
 
+const highScore = localStorage.getItem("high-score");
+
 let ship = new Ship();
 let bullets = [];
 let asteroids = [];
@@ -72,6 +74,17 @@ const checkBulletCollision = () => {
   }
 };
 
+const renderGameOver = () => {
+  ship.visible = false;
+
+  if (score > 0 && (score > parseInt(highScore, 10) || !highScore)) {
+    localStorage.setItem("high-score", score.toString());
+    canvasHandler.renderGameOverWithNewHighScore(score);
+  } else {
+    canvasHandler.renderGameOver();
+  }
+};
+
 const renderGame = () => {
   checkShipCollision();
   checkBulletCollision();
@@ -104,8 +117,7 @@ const render = () => {
   canvasHandler.renderHeader();
 
   if (lives <= 0) {
-    ship.visible = false;
-    canvasHandler.renderGameOver();
+    renderGameOver();
   } else {
     renderGame();
   }

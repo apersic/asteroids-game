@@ -10,7 +10,7 @@ class Ship {
     this.rotationSpeed = 0.001;
     this.radius = 15;
     this.angle = 0;
-    this.strokeColor = "white";
+    this.strokeColor = PLAYER_COLOR;
     this.noseX = CANVAS_WIDTH / 2 + 15;
     this.noseY = CANVAS_HEIGHT;
   }

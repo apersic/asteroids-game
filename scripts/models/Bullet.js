@@ -9,6 +9,7 @@ class Bullet {
     this.speed = 5;
     this.velocityX = 0;
     this.velocityY = 0;
+    this.strokeColor = PLAYER_COLOR;
   }
 
   isBulletOffScreen() {
@@ -28,7 +29,7 @@ class Bullet {
   }
 
   draw(context) {
-    context.fillStyle = "white";
+    context.fillStyle = this.strokeColor;
     context.fillRect(this.x, this.y, this.width, this.height);
   }
 }

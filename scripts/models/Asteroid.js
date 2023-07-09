@@ -6,7 +6,7 @@ class Asteroid {
     this.speed = 3;
     this.radius = radius || ASTEROID_RADIUS;
     this.angle = Math.floor(Math.random() * 359);
-    this.strokeColor = "white";
+    this.strokeColor = PRIMARY_COLOR;
     this.level = level || 1;
     this.collisionRadius = collisionRadius || 46;
   }
@@ -36,11 +36,12 @@ class Asteroid {
   }
 
   draw(context) {
+    context.strokeStyle = this.strokeColor;
     context.beginPath();
 
     // It's a hexagon so we divide by 3
     let vertAngle = (Math.PI * 2) / 6;
-    let radians = convertDegreesToRadians(this.angle); 
+    let radians = convertDegreesToRadians(this.angle);
 
     for (let i = 0; i < 6; i++) {
       context.lineTo(
