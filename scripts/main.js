@@ -80,7 +80,6 @@ const renderHeader = () => {
     CANVAS_WIDTH - 105,
     35
   );
-  canvasHandler.drawLifeShips(lives);
 };
 
 const renderGameOver = () => {
