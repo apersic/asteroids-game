@@ -11,6 +11,8 @@ class Ship {
     this.radius = 15;
     this.angle = 0;
     this.strokeColor = "white";
+    this.noseX = CANVAS_WIDTH / 2 + 15;
+    this.noseY = CANVAS_HEIGHT;
   }
 
   // If the ship goes off screen move it to the opposite side
@@ -39,7 +41,11 @@ class Ship {
     context.beginPath();
 
     let vertAngle = (Math.PI * 2) / 3;
-    let radians = (this.angle / Math.PI) * 180;
+    let radians = convertDegreesToRadians(this.angle);
+
+    // We need the ship nose position for bullets origin
+    this.noseX = this.x - this.radius * Math.cos(radians);
+    this.noseY = this.y - this.radius * Math.sin(radians);
 
     // Up to three points because the shape of the ship has three angles.
     for (let i = 0; i < 3; i++) {
@@ -54,8 +60,7 @@ class Ship {
   }
 
   update() {
-    // Convert the ships angle (deg) to radians
-    let radians = (this.angle / Math.PI) * 180;
+    let radians = convertDegreesToRadians(this.angle);
 
     // Moving the ship
     if (this.movingForward) {

@@ -1,2 +1,7 @@
 const CANVAS_WIDTH = 1400;
 const CANVAS_HEIGHT = 720;
+
+const BULLET_WIDTH = 4;
+const BULLET_HEIGHT = 4;
+
+const ASTEROID_RADIUS = 50;
