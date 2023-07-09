@@ -7,7 +7,7 @@ let ship = new Ship();
 let bullets = [];
 let asteroids = [];
 let score = 0;
-let lives = 3;
+let lives = STARTING_LIVES;
 
 const checkShipCollision = () => {
   if (asteroids.length !== 0) {
@@ -116,6 +116,7 @@ const render = () => {
 
   canvasHandler.renderHeader();
 
+  console.log(lives);
   if (lives <= 0) {
     renderGameOver();
   } else {
