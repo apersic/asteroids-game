@@ -11,6 +11,15 @@ class Bullet {
     this.velocityY = 0;
   }
 
+  isBulletOffScreen() {
+    return (
+      this.x < this.radius ||
+      this.x > CANVAS_WIDTH ||
+      this.y < this.radius ||
+      this.y > CANVAS_HEIGHT
+    );
+  }
+
   update() {
     let radians = convertDegreesToRadians(this.angle);
 

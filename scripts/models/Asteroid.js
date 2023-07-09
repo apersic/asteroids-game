@@ -1,12 +1,14 @@
 class Asteroid {
-  constructor() {
+  constructor(x, y, radius, level, collisionRadius) {
     this.visible = true;
-    this.x = Math.floor(Math.random() * CANVAS_WIDTH);
-    this.y = Math.floor(Math.random() * CANVAS_HEIGHT);
-    this.speed = 1;
-    this.radius = ASTEROID_RADIUS;
+    this.x = x || Math.floor(Math.random() * CANVAS_WIDTH);
+    this.y = y || Math.floor(Math.random() * CANVAS_HEIGHT);
+    this.speed = 3;
+    this.radius = radius || ASTEROID_RADIUS;
     this.angle = Math.floor(Math.random() * 359);
     this.strokeColor = "white";
+    this.level = level || 1;
+    this.collisionRadius = collisionRadius || 46;
   }
 
   handleIsAsteroidOffScreen() {
@@ -38,7 +40,7 @@ class Asteroid {
 
     // It's a hexagon so we divide by 3
     let vertAngle = (Math.PI * 2) / 6;
-    let radians = convertDegreesToRadians(this.angle);
+    let radians = convertDegreesToRadians(this.angle); 
 
     for (let i = 0; i < 6; i++) {
       context.lineTo(
