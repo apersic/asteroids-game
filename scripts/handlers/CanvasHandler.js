@@ -52,7 +52,6 @@ class CanvasHandler {
             CANVAS_HEIGHT / 2 + 100
           )
         ) {
-          console.log("Click!");
           lives = STARTING_LIVES;
         }
       },

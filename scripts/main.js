@@ -116,7 +116,6 @@ const render = () => {
 
   canvasHandler.renderHeader();
 
-  console.log(lives);
   if (lives <= 0) {
     renderGameOver();
   } else {
